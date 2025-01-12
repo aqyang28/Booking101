@@ -74,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				E5943D092CE424820082EBCE /* Photo Booking */,
+				E5943D0E2CE424830082EBCE /* Assets.xcassets */,
 				E5943D082CE424820082EBCE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,11 +93,7 @@
 				E5D8970B2CFE5E9A00064FAF /* Launching App */,
 				E5D8970A2CFE5E4D00064FAF /* Login + Signup */,
 				E5D897122CFE61C000064FAF /* Home Pages */,
-				E5D8971B2CFEB02500064FAF /* Photographers.swift */,
-				E5D897062CFE1A4700064FAF /* Users.swift */,
-				E5D897022CFD13D600064FAF /* UserService.swift */,
-				E5F76D6D2CFC261D00810F18 /* Photo_BookingApp.swift */,
-				E5943D0E2CE424830082EBCE /* Assets.xcassets */,
+				E5C471442CFFB4AE000C7A43 /* Globals */,
 				E5943D102CE424830082EBCE /* Preview Content */,
 			);
 			path = "Photo Booking";
@@ -108,6 +105,16 @@
 				E5943D112CE424830082EBCE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E5C471442CFFB4AE000C7A43 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				E5D897062CFE1A4700064FAF /* Users.swift */,
+				E5D897022CFD13D600064FAF /* UserService.swift */,
+				E5F76D6D2CFC261D00810F18 /* Photo_BookingApp.swift */,
+			);
+			path = Globals;
 			sourceTree = "<group>";
 		};
 		E5D8970A2CFE5E4D00064FAF /* Login + Signup */ = {
@@ -149,6 +156,7 @@
 				E5F76D6F2CFC26ED00810F18 /* PhotographerView.swift */,
 				E5F76D732CFC271500810F18 /* SelectDate.swift */,
 				E5D897082CFE527F00064FAF /* ConfirmationScreen.swift */,
+				E5D8971B2CFEB02500064FAF /* Photographers.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

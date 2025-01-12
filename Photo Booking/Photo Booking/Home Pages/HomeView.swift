@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var selectedTab: Int = 0
-    @Binding var numBookings: Int
+    @State private var selectedTab: Int = 0
+    @State private var isLoggedOut = false
     
     var body: some View {
-        
-        TabView {
+        if isLoggedOut {
+            BeginView()
+        } else {
+            TabView {
                 HomeTab()
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
                     .tag(0)
-            SearchTab(numBookings: $numBookings)
+                SearchTab()
                     .tabItem {
                         Image(systemName: "magnifyingglass")
                         Text("Search")
@@ -32,7 +34,7 @@ struct HomeView: View {
                         Text("Bookings")
                     }
                     .tag(2)
-                ProfileTab()
+                ProfileTab(isLoggedOut: $isLoggedOut)
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")
@@ -43,7 +45,8 @@ struct HomeView: View {
             .navigationBarBackButtonHidden()
         }
     }
+}
 
 #Preview {
-    HomeView(numBookings: .constant(0))
+    HomeView()
 }

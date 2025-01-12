@@ -15,13 +15,17 @@ struct UserService {
     private let decoder = JSONDecoder()
     
     public func fetchUsers() async throws -> [User] {
+        // Build the URL
         let components = URLComponents(string: "http://127.0.0.1:5001/get_users")
         guard let url = components?.url else {
             return [] }
         
+        // Fetch data from url
         let (data, _) = try await URLSession.shared.data(from: url)
         
+        // Decode the data to make an array of Users
         let users = try JSONDecoder().decode([User].self, from: data)
+        // Return list of users
         return users
     }
     
@@ -38,9 +42,11 @@ struct UserService {
             
             let (_, response) = try await URLSession.shared.data(from: url)
             
+            // Check for successful login
             if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
                 return true
             }
+            // Throw error if unsuccessful
             throw NSError(domain: "Invalid credentials", code: 1, userInfo: nil)
         }
     
@@ -49,6 +55,7 @@ struct UserService {
                 throw NSError(domain: "Invalid URL", code: 0, userInfo: nil)
             }
             
+            // Prepare the user data as a dictionary
             let userData: [String: String] = [
                 "name": name,
                 "email": email,
@@ -56,6 +63,7 @@ struct UserService {
                 "password": password
             ]
             
+            // Serialize the dictionary to JSON data
             let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
             
             var request = URLRequest(url: url)
@@ -63,8 +71,10 @@ struct UserService {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             request.httpBody = jsonData
             
+            // Fetch response code from url
             let (_ , response) = try await session.data(for: request)
             
+            // Check response code
             if let httpResponse = response as? HTTPURLResponse {
                 switch httpResponse.statusCode {
                 case 201:

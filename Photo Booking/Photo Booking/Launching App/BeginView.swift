@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BeginView: View {
-    @Binding var numBookings: Int
     
     var body: some View {
         NavigationStack {
@@ -29,8 +28,8 @@ struct BeginView: View {
                 
                 
                 HStack (spacing: 50) {
-                    LoginButton(numBookings: $numBookings)
-                    SignUpButton(numBookings: $numBookings)
+                    LoginButton()
+                    SignUpButton()
                 }
                 .padding(.top, 10)
                 .padding(.horizontal)
@@ -42,11 +41,10 @@ struct BeginView: View {
 }
 
 struct LoginButton: View {
-    @Binding var numBookings: Int
-    
+
     var body: some View {
         NavigationStack {
-            NavigationLink(destination: LoginView(numBookings: $numBookings)) {
+            NavigationLink(destination: LoginView()) {
                 Text("Login".uppercased())
                     .font(.system(size: 20, weight: .bold))
                     .foregroundStyle(.white)
@@ -59,11 +57,10 @@ struct LoginButton: View {
     }
 }
 struct SignUpButton: View {
-    @Binding var numBookings: Int
     
     var body: some View {
         NavigationStack {
-            NavigationLink (destination: SignUpView(numBookings: $numBookings)) {
+            NavigationLink (destination: SignUpView()) {
                 Text("Sign Up".uppercased())
                     .font(.system(size: 20, weight: .bold))
                     .foregroundStyle(.white)
@@ -80,5 +77,5 @@ struct SignUpButton: View {
 
 
 #Preview {
-    BeginView(numBookings: .constant(0))
+    BeginView()
 }

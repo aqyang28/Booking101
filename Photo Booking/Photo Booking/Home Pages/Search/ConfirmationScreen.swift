@@ -10,7 +10,6 @@ import SwiftUI
 struct ConfirmationScreen: View {
     
     var selectedDate: Date
-    @Binding var numBookings: Int
     var button: Bool = false
     
     var body: some View {
@@ -27,12 +26,12 @@ struct ConfirmationScreen: View {
             .navigationTitle("Booking confirmed!")
             Spacer()
             
-            Button("Confirm Booking") {
-                print(numBookings)
-                numBookings += 1
-                print("yes \(numBookings)")
-            }
-            NavigationLink(destination: HomeView(numBookings: $numBookings)) {
+//            Button("Confirm Booking") {
+//                print(numBookings)
+//                numBookings += 1
+//                print("yes \(numBookings)")
+//            }
+            NavigationLink(destination: HomeView()) {
                 Text("Return Home")
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 10)
@@ -47,5 +46,5 @@ struct ConfirmationScreen: View {
 }
 
 #Preview {
-    ConfirmationScreen(selectedDate: Date(), numBookings: .constant(0))
+    ConfirmationScreen(selectedDate: Date())
 }

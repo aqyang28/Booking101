@@ -13,7 +13,6 @@ struct BookingsTab: View {
         Booking(provider: "Alex Yang Photographs", location: "San Francisco", description: "NFL pictures", date: "November 24, 2024", price: "$1"),
         Booking(provider: "literally bob ross", location: "Manhattan", description: "Chill Guy wedding pictures", date: "Dec 1, 2024", price: "$0")
         ]
-    @State private var numBookings: Int = 0
     
     var body: some View {
         NavigationStack {
@@ -27,7 +26,7 @@ struct BookingsTab: View {
                         .bold()
                         .foregroundColor(.purple)
                         .padding(.trailing)
-                    Text("Upcoming(\(numBookings))")
+                    Text("Upcoming")
                         .foregroundColor(.gray)
                 }
                 .padding(.horizontal)
@@ -39,7 +38,7 @@ struct BookingsTab: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         ForEach(bookings, id: \.self) { booking in
-                            BookingView(booking: booking, numBookings: $numBookings)
+                            BookingView(booking: booking)
                                 .padding(.horizontal)
                         }
                     }

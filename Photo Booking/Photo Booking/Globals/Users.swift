@@ -12,7 +12,7 @@ struct User: Codable, Identifiable {
     let name: String
     let username: String
     let password: String
-    let appointments: [String]
+    let appointments: [String]?
     var id: String {
         return username
     }

@@ -12,5 +12,40 @@
         "username": "ayang",
         "password": "pwd",
         "appointments": []
+    },
+    {
+        "name": "John Doe",
+        "email": "johndoe@email.com",
+        "username": "jdoe",
+        "password": "test",
+        "appointments": []
+    },
+    {
+        "name": "Sam",
+        "email": "Sam",
+        "username": "sam",
+        "password": "sam",
+        "appointments": []
+    },
+    {
+        "name": "Chen",
+        "email": "mom",
+        "username": "mom",
+        "password": "mom",
+        "appointments": []
+    },
+    {
+        "name": "Test",
+        "email": "test",
+        "username": "test",
+        "password": "test",
+        "appointments": []
+    },
+    {
+        "name": "Hi",
+        "email": "hi",
+        "username": "hi",
+        "password": "hi",
+        "appointments": []
     }
 ]

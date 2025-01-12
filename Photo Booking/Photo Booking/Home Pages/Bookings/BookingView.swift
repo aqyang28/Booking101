@@ -9,7 +9,6 @@ import SwiftUI
 
 struct BookingView: View {
     let booking: Booking
-    @Binding var numBookings: Int
     
     var body: some View {
         NavigationStack {
@@ -40,7 +39,7 @@ struct BookingView: View {
                         .font(.subheadline)
                 }
                 .padding(.bottom, 10)
-                NavigationLink(destination: PhotographerView(photographer: .example, numBookings: $numBookings)) {
+                NavigationLink(destination: PhotographerView(photographer: .example)) {
                     Text("Reorder Booking")
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -61,5 +60,5 @@ struct BookingView: View {
     }
 }
 #Preview {
-    BookingView(booking: Booking(provider: "test", location: "test", description: "test", date: "test", price: "test"), numBookings: .constant(0))
+    BookingView(booking: Booking(provider: "test", location: "test", description: "test", date: "test", price: "test"))
 }

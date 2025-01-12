@@ -8,12 +8,34 @@
 import SwiftUI
 
 struct ProfileTab: View {
+    @State private var navigate = false
+    @Binding var isLoggedOut: Bool
+    
     var body: some View {
-        Text("Profile tab")
         
+        NavigationStack {
+            Text("Profile Tab")
+            Button("Sign out") {
+                signOut()
+            }
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10)
+                .fill(.defaultPurple))
+            .foregroundStyle(.white)
+            .navigationDestination(isPresented: $navigate) {
+                BeginView()
+            }
+        }
+    }
+    
+    func signOut() {
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        isLoggedOut = true
+        navigate = true
     }
 }
 
+
 #Preview {
-    ProfileTab()
+    ProfileTab(isLoggedOut: .constant(false))
 }

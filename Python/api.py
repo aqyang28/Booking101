@@ -79,6 +79,7 @@ def get_users():
         {key: user[key] for key in user }
         for user in users
     ]), 200
+
 @app.route('/validate_user', methods=['GET'])
 def validate_user():
     users = load_users()  # Load users from the JSON file
@@ -97,6 +98,15 @@ def validate_user():
 
     return jsonify({'error': 'Invalid username or password'}), 401
 
+@app.route("/current_user", methods=['GET'])
+def current_user():
+    users = load_users()
+    auth_token = request.headers.get("Authorization")
+    if not auth_token or auth_token not in users:
+        return jsonify({"error": "Invalid user"}), 401
+    
+    current = users[auth_token]
+    return jsonify(current)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

@@ -15,30 +15,20 @@ struct SignUpView: View {
     @State private var errorMessage: String?
     @State private var successMessage: String?
     @State private var isLoggedIn: Bool = false
-    @Binding var numBookings: Int
     
     var body: some View {
         
         NavigationStack {
             
             VStack (alignment: .leading, spacing: 10) {
-                Text("Welcome!")
+                Text("Create Account")
                     .font(.largeTitle)
                     .bold()
                 
-                HStack {
-                    Text("Already have an account?")
-                        .foregroundStyle(.secondary)
-                    NavigationLink (destination: LoginView(numBookings: $numBookings)) {
-                        Text("Log in here")
-                            .underline()
-                    }
-                }
-                .font(.callout)
-                .padding(.bottom, 40)
+                .padding(.bottom, 30)
                 
                 Text("Name")
-                TextField("enter name", text: $name)
+                TextField("Enter name", text: $name)
                     .foregroundStyle(.secondary)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 10)
@@ -46,7 +36,7 @@ struct SignUpView: View {
                     .padding(.bottom, 15)
 
                 Text("Email")
-                TextField("enter email", text: $email)
+                TextField("Enter email", text: $email)
                     .foregroundStyle(.secondary)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 10)
@@ -56,7 +46,7 @@ struct SignUpView: View {
                     .padding(.bottom, 15)
                 
                 Text("Username")
-                TextField("create username", text: $username)
+                TextField("Create username", text: $username)
                     .foregroundStyle(.secondary)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 10)
@@ -65,7 +55,7 @@ struct SignUpView: View {
                     .padding(.bottom, 15)
                 
                 Text("Password")
-                SecureField("create password", text: $password)
+                SecureField("Create password", text: $password)
                     .foregroundStyle(.secondary)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 10)
@@ -85,11 +75,20 @@ struct SignUpView: View {
 
                 .foregroundStyle(.white)
                 
-                .background(NavigationLink(destination: HomeView( numBookings: $numBookings), isActive: $isLoggedIn) {
+                .background(NavigationLink(destination: HomeView(), isActive: $isLoggedIn) {
                    Text("Sign Up")
                 })
                 .disabled(name == "" || email == "" || password == "")
-                .padding(.bottom, 20)
+                
+                HStack {
+                    Text("Already have an account?")
+                        .foregroundStyle(.secondary)
+                    NavigationLink (destination: LoginView()) {
+                        Text("Log in here")
+                            .underline()
+                    }
+                }
+                .font(.callout)
                 
                 if let errorMessage = errorMessage {
                     Text(errorMessage)
@@ -101,8 +100,7 @@ struct SignUpView: View {
                         .foregroundColor(.green)
                 }
             }
-            .padding(.horizontal, 30)
-            .padding(.bottom, 75)
+            .padding(.horizontal, 25)
         }
         .navigationBarBackButtonHidden()
     }
@@ -121,5 +119,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView(numBookings: .constant(0))
+    SignUpView()
 }

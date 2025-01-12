@@ -12,8 +12,7 @@ struct PhotographerProfile: View {
     var provider: String = "Alex Yang Photographs"
     var price: String = "$50"
     var location: String = "Chapel Hill, NC"
-    @Binding var numBookings: Int
-    
+
     
     var body: some View {
         NavigationStack {
@@ -42,7 +41,7 @@ struct PhotographerProfile: View {
                 Spacer()
                 
                 NavigationLink("Select +") {
-                    PhotographerView(photographer: .example, numBookings: $numBookings)
+                    PhotographerView(photographer: .example)
                 }
                 .foregroundStyle(.defaultPurple)
                 .padding(10)
@@ -57,5 +56,5 @@ struct PhotographerProfile: View {
 }
 
 #Preview {
-    PhotographerProfile(image: "exampleface", provider: "test", price: "test", location: "test", numBookings: .constant(0))
+    PhotographerProfile(image: "exampleface", provider: "test", price: "test", location: "test")
 }

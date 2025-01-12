@@ -7,46 +7,10 @@
 
 import SwiftUI
 
-//struct ContentView: View {
-////    @State private var text = "begin"
-////    @State private var appear = false
-//    @State private var isVisible = false
-//
-//    
-//    var body: some View {
-//        NavigationStack {
-//            VStack {
-//                HStack {
-//                    Image("logo")
-//                    Text("Booking101")
-//                        .font(.largeTitle)
-//                        .fontWeight(.bold)
-//                        .onAppear {
-//                            withAnimation(.easeIn(duration: 0.8)) {
-//                                isVisible = true
-//                            }
-//                        }
-//                }
-//                .opacity(isVisible ? 1 : 0)
-//                
-//                NavigationLink(destination: BeginView()) {
-//                    Text("Click to begin")
-//                }
-//                .padding()
-//                .background(.defaultPurple)
-//                .cornerRadius(10)
-//                .padding()
-//                .foregroundStyle(.white)
-//                
-//            }
-//        }
-//    }
-//}
 
 struct ContentView: View {
     @State private var isVisible = false
     @State private var navigateToNextView = false
-    @Binding var numBookings: Int
 
     var body: some View {
         NavigationStack {
@@ -69,7 +33,7 @@ struct ContentView: View {
                 .opacity(isVisible ? 1 : 0)
             }
             .background(
-                NavigationLink(destination: BeginView(numBookings: $numBookings), isActive: $navigateToNextView) {
+                NavigationLink(destination: BeginView(), isActive: $navigateToNextView) {
                     EmptyView()
                 }
             )
@@ -78,6 +42,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(numBookings: .constant(0))
+    ContentView()
 }
 

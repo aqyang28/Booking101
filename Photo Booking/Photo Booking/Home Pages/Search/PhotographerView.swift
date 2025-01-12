@@ -9,11 +9,10 @@ import SwiftUI
 
 struct PhotographerView: View {
     var photographer: Photographer
-    @Binding var numBookings: Int
     
     var body: some View {
         
-        TopHalf(photographer: photographer, numBookings: $numBookings)
+        TopHalf(photographer: photographer)
         
         Divider()
             .frame(height: 8)
@@ -101,7 +100,7 @@ struct PhotographerView: View {
 
 struct TopHalf: View {
     var photographer: Photographer
-    @Binding var numBookings: Int
+
 
     var body: some View {
         VStack (alignment: .leading, spacing: 0){
@@ -140,7 +139,7 @@ struct TopHalf: View {
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .clipped()
-                NavigationLink(destination: SelectDate(numBookings: $numBookings)) {
+                NavigationLink(destination: SelectDate()) {
                     Text("Book a session")
                         .padding(10)
                         .background(RoundedRectangle(cornerRadius: 10)
@@ -157,5 +156,5 @@ struct TopHalf: View {
 
 
 #Preview {
-    PhotographerView(photographer: .example, numBookings: .constant(0))
+    PhotographerView(photographer: .example)
 }

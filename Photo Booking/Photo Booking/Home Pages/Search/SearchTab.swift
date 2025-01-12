@@ -16,7 +16,6 @@ struct SearchTab: View {
         Photographer(image: "simon", provider: "simon d'entremont my other king", price: "$1", location: "Nova Scotia, Canada", specialty: ["Nature and wildlife"]),
         Photographer(image: "mitch", provider: "mitch lally", price: "$100", location: "Australia", specialty: ["Portrait"]),
     ]
-    @Binding var numBookings: Int
     
     var body: some View {
         NavigationStack {
@@ -71,7 +70,7 @@ struct SearchTab: View {
                     .font(.title)
                     .bold()
                 
-                PhotographerList(photographers: photographers, numBookings: $numBookings)
+                PhotographerList(photographers: photographers)
             }
             .padding(.top, 10)
         }
@@ -81,5 +80,5 @@ struct SearchTab: View {
 
 
 #Preview {
-    SearchTab(numBookings: .constant(0))
+    SearchTab()
 }
