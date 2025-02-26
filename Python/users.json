@@ -47,5 +47,19 @@
         "username": "hi",
         "password": "hi",
         "appointments": []
+    },
+    {
+        "name": "Alexandra",
+        "email": "test@gmail.",
+        "username": "aaa",
+        "password": "aaa",
+        "appointments": []
+    },
+    {
+        "name": "Tri",
+        "email": "tri",
+        "username": "tri",
+        "password": "tri",
+        "appointments": []
     }
 ]

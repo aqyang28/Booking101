@@ -47,7 +47,7 @@ struct Tabs: View {
             }
             .frame(width: 400, height: 300)
         }
-        .tabViewStyle(PageTabViewStyle())
+//        .tabViewStyle(PageTabViewStyle())
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .frame(width: 350, height: 250)
     }
